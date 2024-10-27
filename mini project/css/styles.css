@@ -1,0 +1,406 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Sliding Background Images */
+.sliding-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1; /* Keep background behind other content */
+    overflow: hidden;
+}
+
+.sliding-background .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: slideAnimation 15s infinite;
+}
+
+.sliding-background .slide:nth-child(1) {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe_7fBmhPJUkB9IbyUgei8Z3EyNWgkN3pOyw&s'); /* Image 1 */
+    animation-delay: 0s;
+}
+
+.sliding-background .slide:nth-child(2) {
+    background-image: url('https://via.placeholder.com/800x600'); /* Image 2 */
+    animation-delay: 3s;
+}
+
+.sliding-background .slide:nth-child(3) {
+    background-image: url('https://via.placeholder.com/800x600'); /* Image 3 */
+    animation-delay: 5s;
+}
+
+/* Animation for sliding background */
+@keyframes slideAnimation {
+    0%, 20% { opacity: 1; }
+    25%, 95% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Body */
+body {
+    color: #e0e0e0;
+    overflow-x: hidden;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px; /* Adjust the width as needed */
+    height:100%;
+    background-color: #2a2a2a; /* Sidebar background color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0; /* Padding for spacing */
+    z-index: 1000; /* Ensure it's on top of other elements */
+    border-right: 2px solid #ff6843; /* Right border to match your design */
+}
+
+.school-logo {
+    width: 100%; /* Adjust this to your desired size */
+    max-width: 950px; /* Maximum width for the logo */
+    height: 110%; /* Maintain aspect ratio */
+}
+
+/* Navbar Styles */
+.navbar {
+    background: rgba(51, 51, 51, 0.85);
+    padding: 15px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 200px; /* Leave space for sidebar */
+    width: calc(100% - 200px); /* Adjust for sidebar */
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-list li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.nav-list li a {
+    color: #e0e0e0;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 15px;
+    border: 1px solid transparent;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    background-color: #1a1a1a;
+    border: 1px solid #ff6843;
+    border-radius: 5px;
+}
+
+.nav-list i {
+    margin-right: 5px;
+}
+
+/* Page Content */
+.content {
+    padding: 30px;
+    background-color: rgba(42, 42, 42, 0.95);
+    margin: 100px auto 20px;
+    max-width: 600px;
+    border-radius: 8px;
+    border: 2px solid #ff6843;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.8s ease-out;
+    margin-left: 520px; /* Leave space for sidebar */
+}
+
+@keyframes slideIn {
+    0% { opacity: 0; transform: translateX(-100%); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+.content h1 {
+    font-size: 2.5em;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.content p, .content ul, .content table {
+    font-size: 1.1em;
+    color: #e0e0e0;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #333333;
+    color: #e0e0e0; /* Light grey text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #444444;
+    text-align: center;
+}
+
+table th {
+    background-color: #2a2a2a; /* Dark grey for table headers */
+}
+
+table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+/* Marks Page Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    color: #e0e0e0;
+}
+
+input[type="text"], input[type="number"] {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444444;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #ff6843;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #e05533;
+}
+
+#result {
+    margin-top: 20px;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+#marks-table {
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#marks-table th, #marks-table td {
+    padding: 12px;
+    border: 1px solid #444444;
+    color: #e0e0e0;
+}
+
+#marks-table th {
+    background-color: #333333;
+}
+
+#marks-table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+/* Student Attendance Section */
+.student-attendance {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.attendance-box {
+    background-color: rgba(42, 42, 42, 0.95);
+    border: 2px solid #ff6843;
+    border-radius: 8px;
+    padding: 20px;
+    width: 220px; /* Adjust width as needed */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.attendance-box h2 {
+    font-size: 1.5em;
+    color: #ff6843;
+    margin-bottom: 10px;
+}
+
+.attendance-box p {
+    font-size: 1em;
+    color: #e0e0e0;
+}
+
+.attendance-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Student Box Section */
+.student-box {
+    background-color: rgba(42, 42, 42, 0.95);
+    border: 2px solid #ff6843;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px; /* Adjust width as needed */
+    text-align: center;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.student-box h2 {
+    font-size: 1.6em;
+    color: #ff6843;
+    margin-bottom: 10px;
+}
+
+.student-box p {
+    font-size: 1em;
+    color: #e0e0e0;
+}
+
+.student-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+/* Profile Picture Styling */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Makes the image round */
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid #ff6843;
+}
+
+/* Adjust layout for section-left */
+/* Sidebar Styling */
+.sidebar {
+    position: fixed;  /* Fixes the sidebar to the left side of the viewport */
+    top: 0;
+    left: 0;
+    width: 200px;  /* Adjust the width as needed */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #333333;  /* Sidebar background color */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-aligns items horizontally */
+    padding-top: 20px; /* Adds space from the top */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* School Logo Styling */
+.school-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 3px solid #ff6843;
+}
+
+/* School Description Styling */
+.school-description {
+    color: #e0e0e0;
+    font-size: 1em;
+    max-width: 140px; /* Ensures description width aligns with logo width */
+    line-height: 1.4;
+}
+
+
+
+/* Footer Styles */
+footer {
+    background-color: #333333;
+    padding: 20px;
+    text-align: center;
+    border-top: 2px solid #ff6843;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p {
+    color: #e0e0e0;
+}
+
+.social-media a {
+    margin: 0 10px;
+    color: #e0e0e0;
+    font-size: 24px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #ff6843;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    .content {
+        margin: 120px 10px 10px;
+        max-width: 90%; /* Allow more width on smaller screens */
+    }
+
+    .navbar {
+        padding: 10px;
+        width: calc(100% - 50px); /* Adjust for smaller screens */
+        left: 50px; /* Leave space for sidebar */
+    }
+
+    .nav-list li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    footer {
+        position: relative;
+    }
+
+    .sidebar {
+        display: none; /* Hide sidebar on smaller screens */
+    }
+}
